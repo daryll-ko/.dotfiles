@@ -1,0 +1,1 @@
+writing/dotfiles/.zshrc
