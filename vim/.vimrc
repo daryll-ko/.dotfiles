@@ -92,6 +92,8 @@ syntax enable
 filetype plugin indent on
 " colorscheme night-owl
 
+set encoding=utf-8
+
 " UltiSnips setup
 let g:UltiSnipsExpandTrigger        = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger   = '<Tab>'
