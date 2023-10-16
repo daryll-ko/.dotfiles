@@ -102,3 +102,4 @@ let g:UltiSnipsSnippetDirectories   = [$HOME.'/.vim/UltiSnips']
 
 " Set mapleader
 let mapleader = ' '
+let maplocalleader = ' '
