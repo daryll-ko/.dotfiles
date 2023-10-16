@@ -98,4 +98,7 @@ set encoding=utf-8
 let g:UltiSnipsExpandTrigger        = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger   = '<Tab>'
 let g:UltiSnipsJumpBackwardTrigger  = '<S-Tab>'
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+let g:UltiSnipsSnippetDirectories   = [$HOME.'/.vim/UltiSnips']
+
+" Set mapleader
+let mapleader = ' '
