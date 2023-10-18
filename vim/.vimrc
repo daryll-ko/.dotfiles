@@ -84,13 +84,12 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-" if (has("termguicolors"))
-"  set termguicolors
-" endif
+if (has("termguicolors"))
+    set termguicolors
+endif
 
 syntax enable
 filetype plugin indent on
-" colorscheme night-owl
 
 set encoding=utf-8
 
@@ -103,3 +102,8 @@ let g:UltiSnipsSnippetDirectories   = [$HOME.'/.vim/UltiSnips']
 " Set mapleader
 let mapleader = ' '
 let maplocalleader = ' '
+
+colorscheme night-owl
+highlight Comment guifg=#4c686e guibg=NONE ctermfg=Blue ctermbg=NONE
+
+packloadall
