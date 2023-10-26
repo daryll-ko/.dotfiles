@@ -112,23 +112,23 @@ alias v=vim
 alias z=zathura
 
 et () {
-	eza -1 --tree -L ${1:=1}
+	e --tree -L ${1:=1}
 }
 
 rc () {
 	local file="${1:=main}"
 	g++ -std=c++20 $file.cpp
-	pbpaste > int.txt
-	./a.out < in.txt > out.txt | bat
-	bat $file.cpp | pbcopy
+	pv > in.txt
+	./a.out < in.txt > out.txt | b
+	b $file.cpp | pc
 	rm a.out
 }
 
 rj () {
 	local file="${1:=main}"
-	pbpaste > in.txt
-	julia $file.jl < in.txt > out.txt | bat
-	bat $file.jl | pbcopy
+	pv > in.txt
+	j $file.jl < in.txt > out.txt | b
+	b $file.jl | pc
 }
 
 # PATH
