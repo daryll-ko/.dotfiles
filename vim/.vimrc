@@ -11,9 +11,6 @@
 " `vim -u foo`).
 set nocompatible
 
-" Turn on syntax highlighting.
-syntax on
-
 " Disable the default Vim startup message.
 set shortmess+=I
 
@@ -102,6 +99,7 @@ let maplocalleader = ' '
 let g:vimtex_view_method = 'skim'
 
 packloadall
+
 packadd! onedark.vim
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -119,3 +117,7 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
+" Turn on syntax highlighting.
+syntax on
+colorscheme onedark
