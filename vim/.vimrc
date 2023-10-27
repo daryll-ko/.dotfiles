@@ -106,4 +106,4 @@ let maplocalleader = ' '
 let g:vimtex_view_method = 'skim'
 
 packloadall
-
+packadd! onedark.vim
