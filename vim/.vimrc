@@ -103,7 +103,4 @@ let g:UltiSnipsSnippetDirectories   = [$HOME.'/.vim/UltiSnips']
 let mapleader = ' '
 let maplocalleader = ' '
 
-" colorscheme default
-hi LineNr ctermfg=Gray
-
 packloadall
