@@ -103,4 +103,7 @@ let g:UltiSnipsSnippetDirectories   = [$HOME.'/.vim/UltiSnips']
 let mapleader = ' '
 let maplocalleader = ' '
 
+let g:vimtex_view_method = 'skim'
+
 packloadall
+
