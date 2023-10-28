@@ -101,20 +101,20 @@ alias setup_cpp='bat template.cpp > main.cpp && vim main.cpp'
 
 alias b=bat
 alias e='eza -1'
-alias j=julia
-alias m=mkdir
+alias jl=julia
 alias p=python3
 alias pc=pbcopy
 alias pv=pbpaste
 alias s=source
 alias t=touch
 alias v=vim
-alias z=zathura
 
+# eza tree view
 et () {
-	e --tree -L ${1:=1}
+	e --tree -L ${1:=2}
 }
 
+# c++ basic setup
 rc () {
 	local file="${1:=main}"
 	g++ -std=c++20 $file.cpp
@@ -124,6 +124,7 @@ rc () {
 	rm a.out
 }
 
+# julia basic setup
 rj () {
 	local file="${1:=main}"
 	pv > in.txt
