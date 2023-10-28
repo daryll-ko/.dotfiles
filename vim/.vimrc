@@ -98,6 +98,8 @@ let maplocalleader = ' '
 
 let g:vimtex_view_method = 'skim'
 
+nnoremap <leader>u <Cmd>call UltiSnips#RefreshSnippets()<CR>
+
 packloadall
 
 packadd! onedark.vim
