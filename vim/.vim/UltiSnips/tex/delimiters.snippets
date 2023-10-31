@@ -17,7 +17,12 @@ endsnippet
 
 context "math()"
 snippet aa "absolute value" Ai
-|${1:${VISUAL}}|$0
+\abs{${1:${VISUAL}}}$0
+endsnippet
+
+context "math()"
+snippet nn "norm" Ai
+\norm{${1:${VISUAL}}}$0
 endsnippet
 
 # reference: https://github.com/gillescastel/latex-snippets/blob/master/tex.snippets
