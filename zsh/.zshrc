@@ -101,6 +101,7 @@ alias setup_cpp='bat template.cpp > main.cpp && vim main.cpp'
 
 alias b=bat
 alias e='eza -1'
+alias ft='e | wc -l'
 alias jl=julia
 alias p=python3
 alias pc=pbcopy
