@@ -11,8 +11,8 @@ snippet veps "\varepsilon" Ai
 endsnippet
 
 context "math()"
-snippet <- "\leftarrow" Ai
-\leftarrow$0
+snippet '<-\s' "\leftarrow" Air
+\leftarrow $0
 endsnippet
 
 context "math()"
@@ -26,6 +26,11 @@ snippet => "\implies" Ai
 endsnippet
 
 priority 10
+
+context "math()"
+snippet <-> "\leftrightarrow" Ai
+\leftrightarrow$0
+endsnippet
 
 context "math()"
 snippet x-> "\xrightarrow" Ai
