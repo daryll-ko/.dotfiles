@@ -99,6 +99,8 @@ let maplocalleader = ' '
 let g:vimtex_view_method = 'skim'
 
 nnoremap <leader>u <Cmd>call UltiSnips#RefreshSnippets()<CR>
+noremap 0 ^
+noremap ^ 0
 
 packloadall
 
