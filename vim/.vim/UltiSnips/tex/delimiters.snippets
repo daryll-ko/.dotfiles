@@ -1,7 +1,16 @@
+global !p
+
+def math() -> bool:
+	return vim.eval("vimtex#syntax#in_mathzone()") == "1"
+
+endglobal
+
+context "not math()"
 snippet '([^a-zA-Z])mm' "inline math" Air
 `!p snip.rv = match.group(1)`\( ${1:${VISUAL}} \)$0
 endsnippet
 
+context "not math()"
 snippet '([^a-zA-Z])bb' "block math" Air
 `!p snip.rv = match.group(1)`\[ ${1:${VISUAL}} \]$0
 endsnippet
