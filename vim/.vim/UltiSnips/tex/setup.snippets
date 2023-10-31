@@ -1,0 +1,30 @@
+snippet doc "initial document" Ab
+\documentclass{article}
+
+% packages
+\usepackage{amsmath, amssymb, amsthm}	% math
+\usepackage{bm}							% bold math
+\usepackage{booktabs}					% toprule & friends
+\usepackage{cancel}						% +x -x
+\usepackage{enumerate}					% custom enums
+\usepackage{graphicx}					% 画像
+\usepackage{mathtools}					% nice math
+\usepackage{minted}						% code
+\usepackage{xcolor}						% colors
+
+\begin{document}
+
+\title{${1:Name of Document}}
+\author{${2:Daryll Ko}}
+\date{$3}
+
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+snippet pac "package" Ab
+\usepackage[${1:options}]{${2:package}}$0
+endsnippet

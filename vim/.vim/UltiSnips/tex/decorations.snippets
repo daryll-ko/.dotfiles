@@ -1,0 +1,29 @@
+global !p
+
+def math() -> bool:
+	return vim.eval("vimtex#syntax#in_mathzone()") == "1"
+
+endglobal
+
+context "math()"
+snippet __ "subscript" Ai
+_{$1}$0
+endsnippet
+
+context "math()"
+snippet tt "text in math" Ai
+\text{$1}$0
+endsnippet
+
+context "math()"
+snippet bar "bar" Ai
+\overline{$1}$0
+endsnippet
+
+snippet '([^a-zA-Z])ee' "emphasize" Air
+`!p	snip.rv = match.group(1)`\emph{${1:${VISUAL}}}$0
+endsnippet
+
+snippet '([^a-zA-Z])vv' "verbalize" Air
+`!p	snip.rv = match.group(1)`\texttt{$1}$0
+endsnippet

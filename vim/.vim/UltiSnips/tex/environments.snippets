@@ -1,0 +1,36 @@
+snippet env "\begin{*}" Ab
+\begin{$1}
+	$2
+\end{$1}
+$0
+endsnippet
+
+snippet ite "itemize" Ab
+\begin{itemize}
+	\item ${1:${VISUAL}}
+\end{itemize}
+endsnippet
+
+snippet enu "enumerate" Ab
+\begin{enumerate}
+	\item ${1:${VISUAL}}
+\end{enumerate}
+endsnippet
+
+" toggle with tse
+snippet ali "align*" Ab
+\begin{align*}
+	${1:${VISUAL}}
+\end{align*}
+endsnippet
+
+snippet tab "table" Ab
+\begin{table}[${1:htbp}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+	\begin{tabular}{${5:c}}
+	$0${5/((?<=.)c|l|r)|./(?1: & )/g}
+	\end{tabular}
+\end{table}
+endsnippet

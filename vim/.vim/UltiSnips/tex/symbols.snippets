@@ -1,0 +1,27 @@
+global !p
+
+def math() -> bool:
+	return vim.eval("vimtex#syntax#in_mathzone()") == "1"
+
+endglobal
+
+context "math()"
+snippet veps "\varepsilon" Ai
+\varepsilon$0
+endsnippet
+
+context "math()"
+snippet <- "\leftarrow" Ai
+\leftarrow$0
+endsnippet
+
+context "math()"
+snippet -> "\rightarrow" Ai
+\rightarrow$0
+endsnippet
+
+context "math()"
+priority 10
+snippet x-> "\xrightarrow" Ai
+\xrightarrow{$1}$0
+endsnippet
