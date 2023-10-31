@@ -1,0 +1,182 @@
+global !p
+
+def math() -> bool:
+	return vim.eval("vimtex#syntax#in_mathzone()") == "1"
+
+def create_matrix_placeholders(snip):
+	# Create anonymous snippet body
+	anon_snippet_body = ""
+
+	# Get start and end line number of expanded snippet
+	start = snip.snippet_start[0]
+	end = snip.snippet_end[0]
+
+	# Append current line into anonymous snippet
+	for i in range(start, end + 1):
+		anon_snippet_body += snip.buffer[i]
+		anon_snippet_body += "" if i == end else "\n"
+
+	# Delete expanded snippet line till second to last line
+	for i in range(start, end):
+		del snip.buffer[start]
+
+	# Empty last expanded snippet line while preserving the line
+	snip.buffer[start] = ''
+
+	# Expand anonymous snippet
+	snip.expand_anon(anon_snippet_body)
+
+def create_matrix(r: int, c: int, start: str, sep: str, end: str) -> str:
+	res = ""
+	for i in range(r):
+		row = sep.join([f" ${c*i + j + 1} " for j in range(c)])
+		res += f"{start}{row}{end}"
+	return res[:-1]
+
+endglobal
+
+post_jump "create_matrix_placeholders(snip)"
+snippet 'mat([1-9]+),([1-9]+)' "matrix" Ar
+\left[
+\begin{array}{`!p snip.rv = "c" * int(match.group(2))`}
+`!p snip.rv = create_matrix(
+	int(match.group(1)),	# r
+	int(match.group(2)),	# c
+	"\t",					# start
+	"&",					# sep
+	"\\\\\\\\\n"			# end
+)`
+\end{array}
+\right]
+$0
+endsnippet
+
+post_jump "create_matrix_placeholders(snip)"
+snippet 'amt([1-9]+),([1-9]+),([1-9]+)' "augmented matrix" Ar
+\left[
+\begin{array}{`!p snip.rv = "c" * int(match.group(2)) + "|" + "c" * int(match.group(3))`}
+`!p snip.rv = create_matrix(
+	int(match.group(1)),						# r
+	int(match.group(2)) + int(match.group(3)),	# c
+	"\t",										# start
+	"&",										# sep
+	"\\\\\\\\\n"								# end
+)`
+\end{array}
+\right]
+endsnippet
+
+snippet pac "Package" Ab
+\usepackage[${1:options}]{${2:package}}$0
+endsnippet
+
+snippet doc "\documentclass" Ab
+\documentclass{article}
+
+% packages
+\usepackage{amsmath, amssymb, amsthm}	% math
+\usepackage{bm}							% bold math
+\usepackage{booktabs}					% toprule & friends
+\usepackage{cancel}						% +x -x
+\usepackage{enumerate}					% custom enums
+\usepackage{graphicx}					% 画像
+\usepackage{mathtools}					% nice math
+\usepackage{minted}						% code
+\usepackage{xcolor}						% colors
+
+\begin{document}
+
+\title{${1:Name of Document}}
+\author{${2:Daryll Ko}}
+
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+snippet sec "\section" Ab
+\section{${1:Section Name}}
+
+$0
+endsnippet
+
+snippet ite "\begin{itemize}" Ab
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet enu "\begin{enumerate}" Ab
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet ali "\begin{align*}" Ab
+\begin{align*}
+	${1:${VISUAL}}.
+\end{align*}
+endsnippet
+
+snippet env "\begin{*}" Ab
+\begin{$1}
+	$2
+\end{$1}
+$0
+endsnippet
+
+snippet ff "\frac{*}{*}"
+\frac{$1}{$2}$0
+endsnippet
+
+snippet __ "subscript" Ai
+_{$1}$0
+endsnippet
+
+context "math()"
+snippet tt "\text" Ai
+\text{$1}$0
+endsnippet
+
+context "math()"
+snippet bar "bar" Ai
+\overline{$1}$0
+endsnippet
+
+snippet '([^a-zA-Z])ee' "\emph" Air
+`!p	snip.rv = match.group(1)`\emph{${1:${VISUAL}}}$0
+endsnippet
+
+snippet veps "\varepsilon" Ai
+\varepsilon$0
+endsnippet
+
+snippet vv "\texttt" Ai
+\texttt{$1}$0
+endsnippet
+
+snippet <- "\leftarrow" Ai
+\leftarrow$0
+endsnippet
+
+snippet -> "\rightarrow" Ai
+\rightarrow$0
+endsnippet
+
+priority 100
+snippet x-> "\xrightarrow" Ai
+\xrightarrow{$1}$0
+endsnippet
+
+snippet table "Table environment" b
+\begin{table}[${1:htbp}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+	\begin{tabular}{${5:c}}
+	$0${5/((?<=.)c|l|r)|./(?1: & )/g}
+	\end{tabular}
+\end{table}
+endsnippet
