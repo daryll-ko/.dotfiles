@@ -15,6 +15,11 @@ snippet '([^a-zA-Z])bb' "block math" Air
 `!p snip.rv = match.group(1)`\[ ${1:${VISUAL}} \]$0
 endsnippet
 
+context "math()"
+snippet aa "absolute value" Ai
+|${1:${VISUAL}}|$0
+endsnippet
+
 # reference: https://github.com/gillescastel/latex-snippets/tree/master
 
 context "math()"
