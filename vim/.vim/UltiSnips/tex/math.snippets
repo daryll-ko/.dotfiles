@@ -75,6 +75,11 @@ snippet sum "sum" Ai
 \sum_{${1:i = 1}}^{${2:n}}$3
 endsnippet
 
+context "math()"
+snippet int "integral" Ai
+\int_{${1:-\infty}}^{${2:\infty}}$3
+endsnippet
+
 context "not math()"
 snippet qed "\blacksquare" Ai
 \(\blacksquare\)$0
