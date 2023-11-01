@@ -48,6 +48,25 @@ snippet 'mat([1-9]+),([1-9]+)' "matrix" Ar
 $0
 endsnippet
 
+priority 10
+context "math()"
+post_jump "create_matrix_with_tabstops(snip)"
+snippet 'pmat([1-9]+),([1-9]+)' "\pmat" Ar
+\left|
+\begin{array}{`!p snip.rv = "c" * int(match.group(2))`}
+`!p snip.rv = create_matrix(
+	int(match.group(1)),	# r
+	int(match.group(2)),	# c
+	"\t",					# start
+	"&",					# sep
+	"\\\\\\\\\n"			# end
+)`
+\end{array}
+\right|
+$0
+endsnippet
+priority 0
+
 context "math()"
 post_jump "create_matrix_with_tabstops(snip)"
 snippet 'amt([1-9]+),([1-9]+),([1-9]+)' "augmented matrix" Ar
