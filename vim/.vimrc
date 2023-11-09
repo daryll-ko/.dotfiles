@@ -136,3 +136,6 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
+
+let g:ale_fixers = {}
+let g:ale_fixers.python = ['black']
