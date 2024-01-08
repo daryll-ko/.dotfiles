@@ -40,3 +40,14 @@ snippet tab "table" Ab
 	\end{tabular}
 \end{table}
 endsnippet
+
+snippet lis "listing" Ab
+\begin{listing}
+	\caption{Listing \label{lst:${1:label}}: ${2:caption}}
+	\toprule
+	\medskip
+	\inputminted{${3:language}}{code/${5:file}}
+	\smallskip
+	\bottomrule
+\end{listing}
+endsnippet
