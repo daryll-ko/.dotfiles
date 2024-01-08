@@ -33,21 +33,23 @@ endsnippet
 snippet tab "table" Ab
 \begin{table}[${1:htbp}]
 	\centering
-	\caption{${2:caption}}
-	\label{tab:${3:label}}
-	\begin{tabular}{${5:c}}
-	$0${5/((?<=.)c|l|r)|./(?1: & )/g}
+	\begin{tabular}{${4:c}}
+	\toprule
+	$0${4/((?<=.)c|l|r)|./(?1: & )/g} \\\\
+	\midrule
+	$0${4/((?<=.)c|l|r)|./(?1: & )/g} \\\\
+	\bottomrule
 	\end{tabular}
+	\caption{\label{tab:${2:label}}${3:caption}}
 \end{table}
 endsnippet
 
 snippet lis "listing" Ab
-\begin{listing}
-	\caption{Listing \label{lst:${1:label}}: ${2:caption}}
+\begin{listing}[${1:htbp}]
+	\caption{\label{lst:${2:label}}${3:caption}}
 	\toprule
 	\medskip
-	\inputminted{${3:language}}{code/${5:file}}
-	\smallskip
+	\inputminted{${4:language}}{code/${5:file}}
 	\bottomrule
 \end{listing}
 endsnippet
