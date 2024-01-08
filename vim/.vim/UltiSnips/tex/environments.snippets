@@ -47,9 +47,12 @@ endsnippet
 snippet lis "listing" Ab
 \begin{listing}[${1:htbp}]
 	\caption{\label{lst:${2:label}}${3:caption}}
-	\toprule
-	\medskip
+	\hline
+	\hline
+	\bigskip
 	\inputminted{${4:language}}{code/${5:file}}
-	\bottomrule
+	\smallskip
+	\hline
+	\hline
 \end{listing}
 endsnippet
