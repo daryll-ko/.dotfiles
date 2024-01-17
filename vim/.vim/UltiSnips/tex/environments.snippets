@@ -47,10 +47,6 @@ endsnippet
 snippet lis "listing" Ab
 \begin{listing}[${1:htbp}]
 	\caption{\label{lst:${2:label}}${3:caption}}
-	\toprule
-	\bigskip
-	\inputminted{${4:language}}{code/${5:file}}
-	\smallskip
-	\bottomrule
+	\inputminted[frame=single]{${4:language}}{code/${5:file}}
 \end{listing}
 endsnippet
