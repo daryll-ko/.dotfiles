@@ -50,3 +50,11 @@ snippet lis "listing" Ab
 	\inputminted[frame=single]{${4:language}}{code/${5:file}}
 \end{listing}
 endsnippet
+
+snippet fig "figure" Ab
+\begin{figure}[${1:htbp}]
+	\includegraphics[width=\textwidth]{images/${4:file}}
+	\caption{\label{fig:${2:label}}${3:caption}}
+\end{figure}
+endsnippet
+
