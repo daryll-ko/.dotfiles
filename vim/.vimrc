@@ -191,3 +191,5 @@ let g:vimtex_compiler_latexmk = {
 
 let g:ale_fixers = {}
 let g:ale_fixers.python = ['black']
+
+nnoremap <leader>b <Cmd>Black<CR>
