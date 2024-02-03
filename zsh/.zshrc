@@ -103,6 +103,7 @@ alias b=bat
 alias e='eza -1'
 alias ft='e | wc -l'
 alias jl=julia
+alias n=nvim
 alias p=python3
 alias pc=pbcopy
 alias pv=pbpaste
