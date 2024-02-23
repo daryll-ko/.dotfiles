@@ -96,9 +96,6 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias run_rust='cargo run < input.txt > output.txt | bat'
-alias setup_cpp='bat template.cpp > main.cpp && vim main.cpp'
-
 alias b=bat
 alias e='eza -1'
 alias ft='e | wc -l'
@@ -111,12 +108,22 @@ alias s=source
 alias t=touch
 alias v=vim
 
+alias setup_cpp='bat template.cpp > main.cpp && n main.cpp'
+
 # run black on clipboard contents
 alias pf='pv > temp.py && black temp.py && b temp.py | pc && rm temp.py'
 
 # eza tree view
 et () {
 	e --tree -L ${1:=2}
+}
+
+# rust basic setup
+rr () {
+	local file="${1:=src/main}"
+	pv > in.txt
+	cargo run < in.txt > out.txt | b
+	b $file.rs | pc
 }
 
 # c++ basic setup
