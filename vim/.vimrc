@@ -193,3 +193,5 @@ let g:ale_fixers = {}
 let g:ale_fixers.python = ['black']
 
 nnoremap <leader>b <Cmd>Black<CR>
+
+set rtp+=/usr/local/opt/fzf
