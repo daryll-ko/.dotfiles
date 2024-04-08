@@ -35,6 +35,11 @@ snippet bar "bar" Ai
 \overline{${1:${VISUAL}}}$0
 endsnippet
 
+context "not math()"
+snippet '([^a-zA-Z])ff' "bold" Air
+`!p	snip.rv = match.group(1)`\textbf{${1:${VISUAL}}}$0
+endsnippet
+
 snippet '([^a-zA-Z])ee' "emphasize" Air
 `!p	snip.rv = match.group(1)`\emph{${1:${VISUAL}}}$0
 endsnippet
@@ -46,4 +51,9 @@ endsnippet
 context "math()"
 snippet bb "\mathbb" Ai
 \mathbb{${1:${VISUAL}}}$0
+endsnippet
+
+context "math()"
+snippet mm "\bm" Ai
+\bm{${1:${VISUAL}}}$0
 endsnippet
