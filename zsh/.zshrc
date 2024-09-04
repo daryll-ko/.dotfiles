@@ -134,7 +134,7 @@ rc () {
 # [d]ebug [c]pp
 dc () {
 	local file="${1:=main}"
-	./$file.out < in.txt
+	./$file < in.txt
 }
 
 # PATH
