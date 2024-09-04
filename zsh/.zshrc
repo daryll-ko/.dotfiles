@@ -98,27 +98,23 @@ source $ZSH/oh-my-zsh.sh
 
 alias b=bat
 alias e='eza -1'
-alias ft='e | wc -l'
 alias jl=julia
 alias n=nvim
 alias p=python3
 alias pc=pbcopy
 alias pv=pbpaste
-alias s=source
 alias t=touch
 alias v=vim
 
-alias setup_cpp='bat template.cpp > main.cpp && n main.cpp'
-
-# run black on clipboard contents
-alias pf='pv > temp.py && black temp.py && b temp.py | pc && rm temp.py'
+# [s]etup [c]pp
+alias sc='cp template.cpp main.cpp && n main.cpp'
 
 # eza tree view
 et () {
 	e --tree -L ${1:=2}
 }
 
-# rust basic setup
+# [r]un [r]ust
 rr () {
 	local file="${1:=src/main}"
 	pv > in.txt
@@ -126,22 +122,19 @@ rr () {
 	b $file.rs | pc
 }
 
-# c++ basic setup
+# [r]un [c]pp
 rc () {
 	local file="${1:=main}"
-	g++ -std=c++20 $file.cpp
+	g++ -std=c++20 $file.cpp -o $file
 	pv > in.txt
-	./a.out < in.txt > out.txt | b
+	./$file.out < in.txt > out.txt | b
 	b $file.cpp | pc
-	rm a.out
 }
 
-# julia basic setup
-rj () {
+# [d]ebug [c]pp
+dc () {
 	local file="${1:=main}"
-	pv > in.txt
-	jl $file.jl < in.txt > out.txt | b
-	b $file.jl | pc
+	./$file.out < in.txt
 }
 
 # PATH
@@ -159,3 +152,12 @@ export WEXDIR=$HOME/downloads/sam_dev/wex
 export SSCDIR=$HOME/downloads/sam_dev/ssc
 export SAMNTDIR=$HOME/downloads/sam_dev/SAM
 export RAPIDJSONDIR=$HOME/downloads/sam_dev/ssc
+
+# pnpm
+export PNPM_HOME="/Users/macintoshhd/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export GPG_TTY=$(tty)
