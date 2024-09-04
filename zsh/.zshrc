@@ -127,7 +127,7 @@ rc () {
 	local file="${1:=main}"
 	g++ -std=c++20 $file.cpp -o $file
 	pv > in.txt
-	./$file.out < in.txt > out.txt | b
+	./$file < in.txt > out.txt | b
 	b $file.cpp | pc
 }
 
