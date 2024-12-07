@@ -139,9 +139,8 @@ dc () {
 
 # PATH
 
-PATH=/Users/macintoshhd/.bun/bin:/usr/local/sbin:/Users/macintoshhd/.juliaup/bin:/Users/macintoshhd/Library/pnpm:/Users/macintoshhd/.pyenv/shims:/Users/macintoshhd/.bun/bin:/usr/local/sbin:/Users/macintoshhd/.juliaup/bin:/Users/macintoshhd/Library/pnpm:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/macintoshhd/.cargo/bin:/Users/macintoshhd/Library/Python/3.9/bin:/Applications/Julia-1.8.app/Contents/Resources/julia/bin:/Users/macintoshhd/flutter/bin:/Users/macintoshhd/perl5/bin:/Users/macintoshhd/Library/Python/3.9/bin:/Applications/Julia-1.8.app/Contents/Resources/julia/bin:/Users/macintoshhd/flutter/bin:/Users/macintoshhd/perl5/bin:/usr/local/mysql/bin
+PATH=/Users/macintoshhd/.bun/bin:/usr/local/sbin:/Users/macintoshhd/.juliaup/bin:/Users/macintoshhd/Library/pnpm:/Users/macintoshhd/.pyenv/shims:/Users/macintoshhd/.bun/bin:/usr/local/sbin:/Users/macintoshhd/.juliaup/bin:/Users/macintoshhd/Library/pnpm:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/macintoshhd/.cargo/bin:/Users/macintoshhd/Library/Python/3.9/bin:/Applications/Julia-1.8.app/Contents/Resources/julia/bin:/Users/macintoshhd/flutter/bin:/Users/macintoshhd/perl5/bin:/Users/macintoshhd/Library/Python/3.9/bin:/Applications/Julia-1.8.app/Contents/Resources/julia/bin:/Users/macintoshhd/flutter/bin:/Users/macintoshhd/perl5/bin:/usr/local/mysql/bin:/usr/local/go/bin
 
-[ -f "/Users/macintoshhd/.ghcup/env" ] && source "/Users/macintoshhd/.ghcup/env" # ghcup-env
 
 # bun completions
 [ -s "/Users/macintoshhd/.bun/_bun" ] && source "/Users/macintoshhd/.bun/_bun"
@@ -161,3 +160,10 @@ case ":$PATH:" in
 esac
 # pnpm end
 export GPG_TTY=$(tty)
+export PATH="/usr/local/opt/node@22/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f "/Users/macintoshhd/.ghcup/env" ] && . "/Users/macintoshhd/.ghcup/env" # ghcup-env
